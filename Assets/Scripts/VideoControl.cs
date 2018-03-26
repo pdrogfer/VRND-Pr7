@@ -26,14 +26,32 @@ public class VideoControl : MonoBehaviour {
 	//Check if input keys have been pressed and call methods accordingly.
 	void Update(){
 		//Play or pause the video.
-		if (Input.GetKeyDown ("space")) 
-		{
-			if (videoPlayer.isPlaying)
-				videoPlayer.Pause ();
-			else
-				videoPlayer.Play();
-			audioSource.Play();
-		}
+//		if (Input.GetKeyDown ("space")) 
+//		{
+//			if (videoPlayer.isPlaying)
+//				videoPlayer.Pause ();
+//			else
+//				videoPlayer.Play();
+//			audioSource.Play();
+//		}
 
 	}
+
+	public void PlayPauseVideo() {
+
+		if (videoPlayer.isPlaying) {
+
+			videoPlayer.Pause ();
+		}
+		else {
+
+			videoPlayer.Play();
+			audioSource.Play();
+		}
+	}
+
+	void TestButton() {
+		
+	}
+
 }
