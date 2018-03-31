@@ -22,19 +22,8 @@ public class VideoControl : MonoBehaviour {
 			videoPlayer.SetTargetAudioSource(0, audioSource);
 		}
 	}
-
-	//Check if input keys have been pressed and call methods accordingly.
+		
 	void Update(){
-		//Play or pause the video.
-//		if (Input.GetKeyDown ("space")) 
-//		{
-//			if (videoPlayer.isPlaying)
-//				videoPlayer.Pause ();
-//			else
-//				videoPlayer.Play();
-//			audioSource.Play();
-//		}
-
 	}
 
 	public void PlayPauseVideo() {
@@ -50,8 +39,26 @@ public class VideoControl : MonoBehaviour {
 		}
 	}
 
-	void TestButton() {
-		
+	public void RestartVideo() {
+
+		if (videoPlayer.isPlaying) {
+
+			videoPlayer.Pause ();
+			audioSource.Pause ();
+		}
+
+		videoPlayer.frame = 1;
+		videoPlayer.Play ();
+	}
+
+	public void GotoBlackBeach() {
+
+		videoPlayer.frame = 200;
+	}
+
+	public void GotoWaterfalls() {
+
+		videoPlayer.frame = 500;
 	}
 
 }
