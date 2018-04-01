@@ -6,30 +6,48 @@ public class VideoControl : MonoBehaviour {
 
 	private UnityEngine.Video.VideoPlayer videoPlayer;
 
+	public GameObject audioGeysir;
+	public GameObject audioWaterfall;
+	public GameObject geysirParticleSystem;
 
 	[SerializeField]
 	private AudioSource audioSource;
 
-
-
 	void Start () {
+
 		videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer> ();
 
-
-		if (videoPlayer.clip != null) 
-		{
+		if (videoPlayer.clip != null) {
+			
 			videoPlayer.EnableAudioTrack (0, true);
 			videoPlayer.SetTargetAudioSource(0, audioSource);
 		}
+
+		geysirParticleSystem.SetActive (false);
 	}
 		
 	void Update(){
+
+		checkParticleSystemGeysir ();
+	}
+
+	private void checkParticleSystemGeysir() {
+
+		// toggle particles visibility to appear only during geyser
+		if (videoPlayer.time > 44 && videoPlayer.time < 50) {
+
+			geysirParticleSystem.SetActive (true);
+		
+		} else {
+
+			geysirParticleSystem.SetActive (false);
+		}
 	}
 
 	public void PlayPauseVideo() {
 
 		if (videoPlayer.isPlaying) {
-
+			
 			videoPlayer.Pause ();
 		}
 		else {
@@ -47,18 +65,18 @@ public class VideoControl : MonoBehaviour {
 			audioSource.Pause ();
 		}
 
-		videoPlayer.frame = 1;
+		videoPlayer.time = 0;
 		videoPlayer.Play ();
 	}
 
 	public void GotoBlackBeach() {
 
-		videoPlayer.frame = 200;
+		videoPlayer.time = 59;
 	}
 
 	public void GotoWaterfalls() {
 
-		videoPlayer.frame = 500;
+		videoPlayer.time = 116;
 	}
 
 }
