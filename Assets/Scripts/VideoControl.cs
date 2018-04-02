@@ -11,7 +11,7 @@ public class VideoControl : MonoBehaviour {
 	public GameObject geysirParticleSystem;
 
 	[SerializeField]
-	private AudioSource audioSource;
+	// private AudioSource audioSource;
 
 	void Start () {
 
@@ -20,7 +20,7 @@ public class VideoControl : MonoBehaviour {
 		if (videoPlayer.clip != null) {
 			
 			videoPlayer.EnableAudioTrack (0, true);
-			videoPlayer.SetTargetAudioSource(0, audioSource);
+			// videoPlayer.SetTargetAudioSource(0, audioSource);
 		}
 
 		geysirParticleSystem.SetActive (false);
@@ -53,7 +53,7 @@ public class VideoControl : MonoBehaviour {
 		else {
 
 			videoPlayer.Play();
-			audioSource.Play();
+			// audioSource.Play();
 		}
 	}
 
@@ -62,7 +62,7 @@ public class VideoControl : MonoBehaviour {
 		if (videoPlayer.isPlaying) {
 
 			videoPlayer.Pause ();
-			audioSource.Pause ();
+			// audioSource.Pause ();
 		}
 
 		videoPlayer.time = 0;
