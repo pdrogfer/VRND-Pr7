@@ -6,12 +6,7 @@ public class VideoControl : MonoBehaviour {
 
 	private UnityEngine.Video.VideoPlayer videoPlayer;
 
-	public GameObject audioGeysir;
-	public GameObject audioWaterfall;
 	public GameObject geysirParticleSystem;
-
-	[SerializeField]
-	// private AudioSource audioSource;
 
 	void Start () {
 
@@ -20,7 +15,6 @@ public class VideoControl : MonoBehaviour {
 		if (videoPlayer.clip != null) {
 			
 			videoPlayer.EnableAudioTrack (0, true);
-			// videoPlayer.SetTargetAudioSource(0, audioSource);
 		}
 
 		geysirParticleSystem.SetActive (false);
@@ -53,7 +47,6 @@ public class VideoControl : MonoBehaviour {
 		else {
 
 			videoPlayer.Play();
-			// audioSource.Play();
 		}
 	}
 
@@ -62,7 +55,6 @@ public class VideoControl : MonoBehaviour {
 		if (videoPlayer.isPlaying) {
 
 			videoPlayer.Pause ();
-			// audioSource.Pause ();
 		}
 
 		videoPlayer.time = 0;
